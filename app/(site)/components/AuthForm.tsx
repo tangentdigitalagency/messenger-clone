@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Input from "@/app/components/inputs/Input";
 import Button from "@/app/components/Button";
@@ -7,21 +7,28 @@ import AuthSocialButton from "./AuthSocialButton";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-type Varient = "LOGIN" | "REGISTER";
+type Variant = "LOGIN" | "REGISTER";
 
 const AuthForm = () => {
-  const [varient, setVarient] = useState<Varient>("LOGIN");
-  const [isLoading, setIsLoading] = useState(false);
+  const session = useSession();
+  const router = useRouter();
 
-  const toggleVarient = useCallback(() => {
-    if (varient === "LOGIN") {
-      setVarient("REGISTER");
-    } else {
-      setVarient("LOGIN");
+  const [variant, setVariant] = useState<Variant>("LOGIN");
+  const [isLoading, setIsLoading] = useState(false);
+  
+  useEffect(() => {
+    if (!session || session.status !== "authenticated") {
+      router.push("/users");
     }
-  }, [varient]);
+  }, [session, router]);
+  
+
+  const toggleVariant = useCallback(() => {
+    setVariant((prevVariant) => (prevVariant === "LOGIN" ? "REGISTER" : "LOGIN"));
+  }, []);
 
   const {
     register,
@@ -39,56 +46,70 @@ const AuthForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
-    
+    if (variant === "REGISTER") {
+      const { password, confirmPassword } = data;
 
-    if (varient === "REGISTER") {
-
-      let password = data.password;
-    let confirmPassword = data.confirmPassword;
-
-    if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
-      setIsLoading(false);
-      return;
+      if (password !== confirmPassword) {
+        toast.error('Passwords do not match');
+        setIsLoading(false);
+        return;
       }
-      
-      axios.post("/api/register", data)
-        .catch(() => {
-          toast.error("Error registering user");
+
+      axios.post('/api/register', data)
+        .then(() => signIn('credentials', {
+          ...data,
+          redirect: false,
+        }))
+        .then((callback) => {
+          if (callback?.error) {
+            toast.error('Invalid credentials!');
+          } else {
+            toast.success('You Are Registered');
+            router.push('/users');
+          }
         })
-        .finally(() => {
-          setIsLoading(false);
-        })
+        .catch(() => toast.error('Something went wrong!'))
+        .finally(() => setIsLoading(false));
     }
-    if (varient === "LOGIN") {
+
+    if (variant === 'LOGIN') {
       signIn('credentials', {
         ...data,
-        redirect: false
+        redirect: false,
       })
-      .then((callback) => {
-        if (callback?.error) {
-          toast.error('Invalid credentials!');
-        }
-
-        if (callback?.ok) {
-          toast.success('Logged in successfully!');
-        }
-      })
-      .finally(() => setIsLoading(false))
+        .then((callback) => {
+          if (callback?.error) {
+            toast.error('Invalid Login, Please Check Your Email and Password');
+          } else {
+            toast.success('Logged In');
+            router.push('/users');
+          }
+        })
+        .finally(() => setIsLoading(false));
     }
-  }
-
+  };
   const socialAction = (action: string) => {
     setIsLoading(true);
+  
+    signIn(action, { redirect: false })
+      .then((result) => {
 
-    //TODO: NextAuthSocial Sign In
+        console.log(result)
+        // Check if the sign-in was successful
+        if (!result?.error && result?.url) {
+          // Redirect to the provided URL
+          window.location.href = result.url;
+        }
+      })
+      .finally(() => setIsLoading(false));
   };
-
+  
+  
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div className="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          {varient === "REGISTER" && (
+          {variant === "REGISTER" && (
             <Input
               disabled={isLoading}
               register={register}
@@ -117,7 +138,7 @@ const AuthForm = () => {
             type="password"
           />
 
-          {varient === "REGISTER" && (
+          {variant === "REGISTER" && (
             <Input
               disabled={isLoading}
               register={register}
@@ -131,7 +152,7 @@ const AuthForm = () => {
 
           <div>
             <Button disabled={isLoading} fullWidth type="submit">
-              {varient === "LOGIN" ? "Sign in" : "Register"}
+              {variant === "LOGIN" ? "Sign in" : "Register"}
             </Button>
           </div>
         </form>
@@ -152,6 +173,7 @@ const AuthForm = () => {
             <AuthSocialButton
               icon={BsGithub}
               onClick={() => socialAction("github")}
+              
             />
             <AuthSocialButton
               icon={BsGoogle}
@@ -161,12 +183,12 @@ const AuthForm = () => {
         </div>
         <div className="flex justify-center gap-2 px-2 mt-6 text-sm text-gray-500 ">
           <div>
-            {varient === "LOGIN"
+            {variant === "LOGIN"
               ? "New to Messenger?"
               : "Already have an account?"}
           </div>
-          <div onClick={toggleVarient} className="underline cursor-pointer">
-            {varient === "LOGIN" ? "Create an account" : "Login"}
+          <div onClick={toggleVariant} className="underline cursor-pointer">
+            {variant === "LOGIN" ? "Create an account" : "Login"}
           </div>
         </div>
       </div>
