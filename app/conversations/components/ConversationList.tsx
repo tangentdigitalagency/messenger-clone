@@ -34,7 +34,7 @@ const ConversationList: React.FC<ConversationListProps> = ({ initialItems }) => 
     lg:block
     overflow-y-auto 
     border-r 
-    border-gray-200 `, isOpen ? 'hidden' : 'block left-0')}>
+    border-gray-200 `, isOpen ? 'hidden' : 'block left-0', 'w-full lg:w-80')} >
       <div className="px-5">
         <div className="flex justify-between pt-4 mb-4">
           <div className="text-2xl font-bold text-neutral-800">

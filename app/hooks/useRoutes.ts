@@ -25,7 +25,11 @@ const useRoutes = () => {
     },
     {
       label: 'Logout', 
-      onClick: () => signOut(),
+      onClick: () => {
+        //clear all cookies
+      
+        signOut()
+      },
       href: '',
       icon: HiArrowLeftOnRectangle, 
     }

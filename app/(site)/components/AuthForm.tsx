@@ -20,11 +20,11 @@ const AuthForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
-    if (!session || session.status !== "authenticated") {
-      router.push("/users");
+    if (session?.status === "authenticated") {
+      router.push("/conversations");
     }
   }, [session, router]);
-  
+
 
   const toggleVariant = useCallback(() => {
     setVariant((prevVariant) => (prevVariant === "LOGIN" ? "REGISTER" : "LOGIN"));
@@ -65,7 +65,7 @@ const AuthForm = () => {
             toast.error('Invalid credentials!');
           } else {
             toast.success('You Are Registered');
-            router.push('/users');
+            router.push('/conversations');
           }
         })
         .catch(() => toast.error('Something went wrong!'))
@@ -82,7 +82,7 @@ const AuthForm = () => {
             toast.error('Invalid Login, Please Check Your Email and Password');
           } else {
             toast.success('Logged In');
-            router.push('/users');
+            router.push('/conversations');
           }
         })
         .finally(() => setIsLoading(false));

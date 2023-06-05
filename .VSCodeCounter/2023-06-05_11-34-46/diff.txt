@@ -1,0 +1,67 @@
+Date : 2023-06-05 11:34:46
+Directory : c:\Users\Owner\messenger-app
+Total : 21 files,  687 codes, 2 comments, 133 blanks, all 822 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| TypeScript JSX |         11 |        354 |          0 |         76 |        430 |
+| TypeScript     |          6 |        173 |          2 |         30 |        205 |
+| JSON           |          2 |        127 |          0 |          0 |        127 |
+| Markdown       |          1 |         32 |          0 |         27 |         59 |
+| Properties     |          1 |          1 |          0 |          0 |          1 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                         | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                            |         21 |        687 |          2 |        133 |        822 |
+| . (Files)                                                                                    |          5 |        161 |          0 |         27 |        188 |
+| app                                                                                          |         16 |        526 |          2 |        106 |        634 |
+| app\actions                                                                                  |          2 |         45 |          0 |         14 |         59 |
+| app\api                                                                                      |          3 |        144 |          1 |         19 |        164 |
+| app\api\conversations                                                                        |          2 |         78 |          1 |         13 |         92 |
+| app\api\conversations\[conversationId]                                                       |          1 |         59 |          1 |          9 |         69 |
+| app\api\conversations\[conversationId]\seen                                                  |          1 |         59 |          1 |          9 |         69 |
+| app\api\conversations\components                                                             |          1 |         19 |          0 |          4 |         23 |
+| app\api\messages                                                                             |          1 |         66 |          0 |          6 |         72 |
+| app\components                                                                               |          2 |         18 |          0 |         -4 |         14 |
+| app\components (Files)                                                                       |          1 |          0 |          0 |          1 |          1 |
+| app\components\sidebar                                                                       |          1 |         18 |          0 |         -5 |         13 |
+| app\conversations                                                                            |          8 |        317 |          0 |         76 |        393 |
+| app\conversations\[conversationId]                                                           |          7 |        308 |          0 |         76 |        384 |
+| app\conversations\[conversationId] (Files)                                                   |          1 |         32 |          0 |         10 |         42 |
+| app\conversations\[conversationId]\components                                                |          6 |        276 |          0 |         66 |        342 |
+| app\conversations\components                                                                 |          1 |          9 |          0 |          0 |          9 |
+| app\hooks                                                                                    |          1 |          2 |          1 |          1 |          4 |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                                     | language       | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| c:\Users\Owner\messenger-app\.env                                                            | Properties     |          1 |          0 |          0 |          1 |
+| c:\Users\Owner\messenger-app\README.md                                                       | Markdown       |         32 |          0 |         27 |         59 |
+| c:\Users\Owner\messenger-app\app\actions\getConversationById.ts                              | TypeScript     |         23 |          0 |          8 |         31 |
+| c:\Users\Owner\messenger-app\app\actions\getMessages.ts                                      | TypeScript     |         22 |          0 |          6 |         28 |
+| c:\Users\Owner\messenger-app\app\api\conversations\[conversationId]\seen\route.ts            | TypeScript     |         59 |          1 |          9 |         69 |
+| c:\Users\Owner\messenger-app\app\api\conversations\components\ConversationBox.tsx            | TypeScript JSX |         19 |          0 |          4 |         23 |
+| c:\Users\Owner\messenger-app\app\api\messages\route.ts                                       | TypeScript     |         66 |          0 |          6 |         72 |
+| c:\Users\Owner\messenger-app\app\components\Avatar.tsx                                       | TypeScript JSX |          0 |          0 |          1 |          1 |
+| c:\Users\Owner\messenger-app\app\components\sidebar\DesktopSidebar.tsx                       | TypeScript JSX |         18 |          0 |         -5 |         13 |
+| c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\Body.tsx          | TypeScript JSX |         27 |          0 |         14 |         41 |
+| c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\Form.tsx          | TypeScript JSX |         60 |          0 |          8 |         68 |
+| c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\Header.tsx        | TypeScript JSX |         47 |          0 |         11 |         58 |
+| c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\MessageBox.tsx    | TypeScript JSX |         62 |          0 |         10 |         72 |
+| c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\MessageInput.tsx  | TypeScript JSX |         18 |          0 |          6 |         24 |
+| c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\ProfileDrawer.tsx | TypeScript JSX |         62 |          0 |         17 |         79 |
+| c:\Users\Owner\messenger-app\app\conversations\[conversationId]\page.tsx                     | TypeScript JSX |         32 |          0 |         10 |         42 |
+| c:\Users\Owner\messenger-app\app\conversations\components\ConversationList.tsx               | TypeScript JSX |          9 |          0 |          0 |          9 |
+| c:\Users\Owner\messenger-app\app\hooks\useRoutes.ts                                          | TypeScript     |          2 |          1 |          1 |          4 |
+| c:\Users\Owner\messenger-app\middleware.ts                                                   | TypeScript     |          1 |          0 |          0 |          1 |
+| c:\Users\Owner\messenger-app\package-lock.json                                               | JSON           |        124 |          0 |          0 |        124 |
+| c:\Users\Owner\messenger-app\package.json                                                    | JSON           |          3 |          0 |          0 |          3 |
+| Total                                                                                        |                |        687 |          2 |        133 |        822 |
++----------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

@@ -1,0 +1,23 @@
+"filename", "language", "Markdown", "JSON", "TypeScript", "Properties", "TypeScript JSX", "comment", "blank", "total"
+"c:\Users\Owner\messenger-app\.env", "Properties", 0, 0, 0, 1, 0, 0, 0, 1
+"c:\Users\Owner\messenger-app\README.md", "Markdown", 32, 0, 0, 0, 0, 0, 27, 59
+"c:\Users\Owner\messenger-app\app\actions\getConversationById.ts", "TypeScript", 0, 0, 23, 0, 0, 0, 8, 31
+"c:\Users\Owner\messenger-app\app\actions\getMessages.ts", "TypeScript", 0, 0, 22, 0, 0, 0, 6, 28
+"c:\Users\Owner\messenger-app\app\api\conversations\[conversationId]\seen\route.ts", "TypeScript", 0, 0, 59, 0, 0, 1, 9, 69
+"c:\Users\Owner\messenger-app\app\api\conversations\components\ConversationBox.tsx", "TypeScript JSX", 0, 0, 0, 0, 19, 0, 4, 23
+"c:\Users\Owner\messenger-app\app\api\messages\route.ts", "TypeScript", 0, 0, 66, 0, 0, 0, 6, 72
+"c:\Users\Owner\messenger-app\app\components\Avatar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\Owner\messenger-app\app\components\sidebar\DesktopSidebar.tsx", "TypeScript JSX", 0, 0, 0, 0, 18, 0, -5, 13
+"c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\Body.tsx", "TypeScript JSX", 0, 0, 0, 0, 27, 0, 14, 41
+"c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\Form.tsx", "TypeScript JSX", 0, 0, 0, 0, 60, 0, 8, 68
+"c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\Header.tsx", "TypeScript JSX", 0, 0, 0, 0, 47, 0, 11, 58
+"c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\MessageBox.tsx", "TypeScript JSX", 0, 0, 0, 0, 62, 0, 10, 72
+"c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\MessageInput.tsx", "TypeScript JSX", 0, 0, 0, 0, 18, 0, 6, 24
+"c:\Users\Owner\messenger-app\app\conversations\[conversationId]\components\ProfileDrawer.tsx", "TypeScript JSX", 0, 0, 0, 0, 62, 0, 17, 79
+"c:\Users\Owner\messenger-app\app\conversations\[conversationId]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 32, 0, 10, 42
+"c:\Users\Owner\messenger-app\app\conversations\components\ConversationList.tsx", "TypeScript JSX", 0, 0, 0, 0, 9, 0, 0, 9
+"c:\Users\Owner\messenger-app\app\hooks\useRoutes.ts", "TypeScript", 0, 0, 2, 0, 0, 1, 1, 4
+"c:\Users\Owner\messenger-app\middleware.ts", "TypeScript", 0, 0, 1, 0, 0, 0, 0, 1
+"c:\Users\Owner\messenger-app\package-lock.json", "JSON", 0, 124, 0, 0, 0, 0, 0, 124
+"c:\Users\Owner\messenger-app\package.json", "JSON", 0, 3, 0, 0, 0, 0, 0, 3
+"Total", "-", 32, 127, 173, 1, 354, 2, 133, 822

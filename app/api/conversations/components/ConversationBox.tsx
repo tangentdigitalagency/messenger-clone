@@ -62,28 +62,30 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
   return (
     <div
       onClick={handleClick}
-      className={clsx(`w-full relative flex items-center p-2 mb-1 space-x-3 hover:bg-neutral-200 rounded-lg transition cursor-pointer `,selected ? "bg-neutral-200" : "bg-neutral-50"
+      className={clsx(`w-full relative flex items-center p-2 mb-1 space-x-3 hover:bg-neutral-200 rounded-lg transition cursor-pointer `,selected ? " bg-gradient-to-r from-sky-500 to-indigo-400" : "bg-neutral-50"
       )}
     >
       <Avatar user={otherUser} />
       <div className="flex-1 min-w-0">
         <div className="focus:outline-none">
           <div className="flex items-center justify-between mb-1">
-            <p className="font-medium text-gray-900 text-md">
+            <p className={clsx(`font-medium text-gray-900 text-md`, selected ? "text-white" : "")}>
               {data.name || otherUser?.name}
             </p>
             {lastMessage?.createdAt && (
-              <p className="text-xs font-light text-gray-400">
-                {format(new Date(lastMessage.createdAt), "p")}
+              <p className={clsx(`text-xs font-light text-gray-400`, selected ? "text-white" : "")}>
+                {format(new Date(lastMessage.createdAt), "p")} <br/>
+                {format(new Date(lastMessage.createdAt), "MM/dd/yyyy")}
               </p>
              
             )}
 
           </div>
-          <p className={clsx(`truncate text-sm`, hasSeen ? 'text-gray-500' : 'text-black font-medium')}>
+          <p className={clsx(`truncate text-sm`, hasSeen ? 'text-gray-500' : 'text-black font-medium', selected ? "text-white" : "")}>
             {lastMessageText}
           </p>
 
+         
         </div>
 
       </div>
